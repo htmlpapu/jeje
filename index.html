@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>En otra vida?</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #040204;
+            color: #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            animation: fadeInContainer 1s ease-in-out;
+        }
+
+        @keyframes fadeInContainer {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .gif-container {
+            max-width: 150px;
+            margin: 0 auto 40px auto;
+        }
+
+        .text-container p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 1em;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .text-container p.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .highlight {
+            color: #FFC300;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 195, 0, 0.5);
+        }
+
+        .image-wrapper {
+            max-width: 300px;
+            margin: 40px auto 0 auto;
+            border: 5px solid #FFC300;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(255, 195, 0, 0.4);
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInEnd 1.2s ease-out 11s forwards;
+        }
+
+        .main-image {
+            width: 100%;
+            display: block;
+        }
+
+        @keyframes fadeInEnd {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="gif-container">
+            <div class="tenor-gif-embed" data-postid="20028517" data-share-method="host" data-aspect-ratio="1.2549" data-width="100%"><a href="https://tenor.com/view/purin-sanrio-gif-20028517">Purin Sanrio GIF</a>from <a href="https://tenor.com/search/purin+sanrio-gifs">Purin Sanrio GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div>
+
+        <div class="text-container">
+            <p>Te diría “en otra vida”…</p>
+            <p>pero solo tenemos esta.</p>
+            <p>Y en esta, quiero sentirte cerca,</p>
+            <p>porque, al final del día,</p>
+            <p class="highlight">eres la mujer que mueve mi mundo.</p>
+            <p>Esta noche te voy a mandar un mensaje,</p>
+            <p>solo para preguntarte cómo estás.</p>
+            <p>Odiame si quieres por no respetar tu decisión…</p>
+            <p>pero no quiero decir adiós.</p>
+        </div>
+
+        <div class="image-wrapper">
+            <img class="main-image" src="https://i.pinimg.com/736x/e0/ce/8a/e0ce8a51c44b75f37bb6233f3ddefac2.jpg" alt="Imagen evocadora">
+        </div>
+        
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const textLines = document.querySelectorAll('.text-container p');
+
+            textLines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.classList.add('visible');
+                }, 1000 + index * 1200); 
+            });
+        });
+    </script>
+
+</body>
+</html>
