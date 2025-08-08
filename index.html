@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un Mensaje para Ti</title>
+    <title>Una Carta Atrasada</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         * {
@@ -17,14 +17,25 @@
         }
 
         body {
-            background-color: #121212;
+            /* --- FONDO CON IMAGEN OSCURECIDA --- */
+            background-color: #121212; /* Color de respaldo si la imagen no carga */
+            background-image: 
+                /* Capa negra semi-transparente para oscurecer la imagen */
+                linear-gradient(rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.92)),
+                /* URL de la imagen de fondo */
+                url('https://images.unsplash.com/photo-1548291616-bfccc8db731d?q=80&w=327&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
+            background-position: center center; /* Centra la imagen */
+            background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
+
+            /* --- ESTILOS GENERALES (SIN CAMBIOS) --- */
             color: #f0f0f0;
             font-family: 'Poppins', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 30px 20px;
             overflow-x: hidden;
         }
 
@@ -32,7 +43,6 @@
             max-width: 600px;
             width: 100%;
             text-align: center;
-            padding: 20px;
             animation: fadeInContainer 1s ease-in-out;
         }
 
@@ -41,20 +51,36 @@
             to { opacity: 1; }
         }
 
-        .gif-container {
-            max-width: 150px;
-            margin: 0 auto 40px auto;
+        .gif-wrapper {
+            max-width: 180px;
+            margin: 30px auto;
+            border: 4px solid #FFC300;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 195, 0, 0.5);
+            overflow: hidden;
+        }
+        
+        .gif-wrapper > div {
+            display: block;
         }
 
+        .text-container {
+            margin-bottom: 30px;
+        }
+        
         .text-container p {
-            font-size: 1.2rem;
-            line-height: 1.7;
-            margin-bottom: 1em;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-bottom: 1.2em;
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
 
+        .text-container p:last-child {
+            margin-bottom: 0;
+        }
+        
         .text-container p.visible {
             opacity: 1;
             transform: translateY(0);
@@ -63,82 +89,118 @@
         .highlight {
             color: #FFC300;
             font-weight: 700;
-            text-shadow: 0 0 10px rgba(255, 195, 0, 0.5);
+            text-shadow: 0 0 8px rgba(255, 195, 0, 0.4);
         }
 
-        .image-wrapper {
-            max-width: 300px;
-            margin: 40px auto 0 auto;
-            border: 5px solid #FFC300;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(255, 195, 0, 0.4);
-            overflow: hidden;
+        .button-container {
+            margin-top: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
             opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInEnd 1.2s ease-out 15s forwards;
+            animation: fadeInButtons 1.2s ease-out 14s forwards;
         }
 
-        .main-image {
-            width: 100%;
-            display: block;
-        }
-
-        @keyframes fadeInEnd {
+        @keyframes fadeInButtons {
             to {
                 opacity: 1;
-                transform: translateY(0);
             }
         }
 
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            width: 80%;
+            max-width: 280px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 4px 20px rgba(255, 195, 0, 0.4);
+        }
+
+        .button.primary {
+            background-color: #FFC300;
+            color: #121212;
+        }
+
+        .button.secondary {
+            background-color: transparent;
+            color: #FFC300;
+            border: 2px solid #FFC300;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
 
-        <div class="gif-container">
-            <div class="tenor-gif-embed" data-postid="20028517" data-share-method="host" data-aspect-ratio="1.2549" data-width="100%"><a href="https://tenor.com/view/purin-sanrio-gif-20028517">Purin Sanrio GIF</a>from <a href="https://tenor.com/search/purin+sanrio-gifs">Purin Sanrio GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="14853798367549290262" data-share-method="host" data-aspect-ratio="0.997778" data-width="100%"><a href="https://tenor.com/view/sanrio-napoli-pompompurin-gif-14853798367549290262">Sanrio Napoli GIF</a>from <a href="https://tenor.com/search/sanrio-gifs">Sanrio GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
         </div>
 
         <div class="text-container">
-            <p>Te diría “en otra vida”,</p>
-            <p>pero solo tenemos esta.</p>
-            <p>Y aun así,</p>
-            <p>daría todo por conocerte una y otra vez</p>
-            <p>Hay noches que me basta</p>
-            <p>imaginarte tranquila.</p>
-            <p>Y otras que tu ausencia</p>
-            <p>me duele en silencio.</p>
-            <p>Entiendo lo que decidimos,</p>
-            <p>pero no fingiré</p>
-            <p>que no duele dejarte ir.</p>
-            <p>Te escribiré para saber de ti,</p>
-            <p>no por costumbre,</p>
-            <p>sino porque importas.</p>
-            <p>Odiame si quieres por no respetar tu decisión…</p>
-            <p class="highlight">pero no quiero decir adiós.</p>
+            <p>Créeme, esta carta tenía que llegar mucho antes. De verdad, no sé por cuántas manos pasó. Creo que Tatiana fue la última... o eso espero.</p>
+            <p>¿Estás en clases del complexivo? O eso me dijeron. Pensándolo bien, ¿por qué no te la entregué en persona?</p>
+            <p>Mmm... ¿me pondrías una orden de restricción?</p>
+            <p><span class="highlight">El Lic. Chicaiza, arrestado por acoso.</span></p>
         </div>
 
-        <div class="image-wrapper">
-            <img class="main-image" src="https://i.pinimg.com/736x/e0/ce/8a/e0ce8a51c44b75f37bb6233f3ddefac2.jpg" alt="Imagen evocadora">
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="4550945608696885249" data-share-method="host" data-aspect-ratio="1.15814" data-width="100%"><a href="https://tenor.com/view/pompompurin-breachforums-pombreach-gif-4550945608696885249">Pompompurin Breachforums Meme</a>from <a href="https://tenor.com/search/pompompurin-memes">Pompompurin Memes</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
         </div>
         
+        <div class="text-container">
+            <p>Y si te llevo un pollo asado, ¿aceptarías que te visite? <span class="highlight">Me escaparía una y otra vez</span> con tal de compartir una comida contigo.</p>
+        </div>
+
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="27683264" data-share-method="host" data-aspect-ratio="1.49533" data-width="100%"><a href="https://tenor.com/view/rotisserie-chicken-spinning-food-roast-gif-27683264">Rotisserie Chicken GIF</a>from <a href="https://tenor.com/search/rotisserie-gifs">Rotisserie GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div>
+
+        <div class="text-container">
+            <p>Quizá es difícil darme el beneficio de la duda. A mí, un <span class="highlight">man alérgico al compromiso</span>, uno que no sabe cómo demostrar amor. ¿Me falta más experiencia? Tal vez por eso no pasé de las prácticas...</p>
+            <p>Pero a tu lado creo que descubrí algo nuevo: <span class="highlight">mi propia forma de amar.</span> Está en los detalles, en acordarme de cada cosa que me cuentas.</p>
+            <p>Cuando me preguntas "¿oye, te acuerdas de...?" y te respondo "nooo", es solo para molestarte. Porque en mi cabeza todavía están los tests de "qué tipo de lesbiana soy", o cuando me hablabas de Helluva Boss y que tenía que verla. Los miércoles que no ibas, yo la veía solo para tener un nuevo tema de conversación.</p>
+            <p>Recuerdo tus chistes sobre mi color de piel, sobre mis cortes de pelo o "zorra palmer", que sí me ofendía.</p>
+        </div>
+        
+        <div class="gif-wrapper">
+            <div class="tenor-gif-embed" data-postid="5400578" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/pompompurin-thankyou-gif-5400578">Pom Pom Purin GIF</a>from <a href="https://tenor.com/search/pompompurin-gifs">Pompompurin GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+        </div>
+
+        <div class="text-container">
+            <p>Cada semestre tenías un nuevo puesto soñado: Auditora Forense, trabajar en el SRI, en la ONU o en una firma internacional. La contabilidad, esa matemática que para mí no tenía corazón <span class="highlight">hasta que te conocí.</span></p>
+            <p>Hasta que veía con admiración tus deberes a mano, hoja tras hoja, puro esfuerzo de <span class="highlight">la más fuerte.</span></p>
+            <p>Admito que a veces me hago el tonto para que me expliques temas que quizá ya sabía. Pero es que tu forma tan empática de enseñar me llena el corazón, porque noto cuándo algo de verdad te apasiona.</p>
+            <p>Quizá me estoy agarrando con <span class="highlight">la garrita</span> de un peñasco, a punto de caer, pero te seré más claro que nunca:</p>
+            <p><span class="highlight">Quiero estar ahí para ti. Quiero terminar contigo lo que algún día comenzó en el asiento de un reco.</span></p>
+            <p>¿Quieres que me escape una vez más y te lleve un pollito asado? ¿O me enviarás ese texto empático que, bueno... me romperá el corazón?</p>
+        </div>
+        
+        <div class="button-container">
+            <a href="https://wa.link/ilxlqi" target="_blank" class="button primary">LA SEÑAL 🍗</a>
+            <a href="https://wa.link/s4g3ux" target="_blank" class="button secondary">TEXTASO EMPÁTICO</a>
+        </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const textLines = document.querySelectorAll('.text-container p');
-
+            
             textLines.forEach((line, index) => {
                 setTimeout(() => {
                     line.classList.add('visible');
-                }, 800 + index * 900); 
+                }, 800 + index * 1000); 
             });
         });
     </script>
 
 </body>
 </html>
-
-
-
